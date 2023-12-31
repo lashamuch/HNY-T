@@ -1,0 +1,42 @@
+.snowfall, .snowfall::after, .snowfall::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(4px 4px at 100px 50px,#fff,transparent),
+                        radial-gradient(6px 6px at 200px 150px, #fff,transparent),
+                        radial-gradient(3px 3px at 300px 250px,#fff,transparent),
+                        radial-gradient(4px 4px at 400px 350px,#fff,transparent),
+                        radial-gradient(6px 6px at 500px 100px,#fff,transparent),
+                        radial-gradient(3px 3px at 50px 200px,#fff,transparent),
+                        radial-gradient(4px 4px at 150px 300px,#fff,transparent),
+                        radial-gradient(6px 6px at 250px 400px,#fff,transparent),
+                        radial-gradient(3px 3px at 350px 500px,#fff,transparent),
+                        radial-gradient(4px 4px at 550px 550px,#fff,transparent);
+    background-size: 100vw 100vh;
+    animation: snow 3s linear infinite;
+}
+.snowfall::after {
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation-direction: reverse;
+    animation-duration: 6s;
+}
+.snowfall::before {
+    margin-left: -350px;
+    opacity: 0.7;
+    filter: blur(1px);
+    animation-direction: reverse;
+    animation-duration: 9s;
+}
+@keyframes snow {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}

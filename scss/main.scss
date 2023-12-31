@@ -1,0 +1,191 @@
+@use 'partials/reset';
+@use 'partials/snowfall';
+@use 'partials/breakpoints' as bp;
+
+html, body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(180deg, black, rgba(24, 28, 40, 1));
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-areas: 
+        'textarea'
+        'decorations';
+
+    .textarea {
+        grid-area: textarea;
+    }
+
+    .decorations {
+        grid-area: decorations;
+    }
+}
+
+.textarea {
+    color: white;
+    position: relative;
+
+    #paragraph {
+        text-align: center;
+        font-size: 1.6rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 85vw;
+        margin-inline: 7.5%;
+    }
+}
+
+.settlement {
+    background-image: url(assets/background.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 160%;
+    width: 100%;
+    height: 100%;
+
+    @media (min-width: bp.$medium) {
+        background-size: 110%;
+    }
+
+    @media (min-width: bp.$large) {
+        background-position: top;
+        background-size: 100%;
+
+    }
+
+    .tree {
+        background-image: url(assets/tree.png);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+
+        .presents {
+            background-image: url(assets/presents.png);
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: 65%;
+            width: 100%;
+            height: 100%;
+
+            @media (min-width: bp.$medium) {
+                background-size: 45%;
+            }
+
+            @media (min-width: bp.$large) {
+                background-size: 25%;
+            }
+
+            @media (min-width: bp.$huge) {
+                background-size: 20%;
+            }
+        }
+    }
+
+    .snowman-container {
+        position: absolute;
+        bottom: 7vh;
+        left: 5%;
+        width: 13%;
+        height: 13%;
+
+        @media (min-width: bp.$medium) {
+            left: 15%;
+            width: 10%;
+            height: 10%;          
+        }
+
+        @media (min-width: bp.$large) {
+            left: 25%;
+        }
+
+        @media (min-width: bp.$huge) {
+            bottom: 4vh;
+            left: 30%;
+            width: 9%;
+            height: 9%;
+        }
+    
+        .snowman {
+            background-image: url(assets/snowman.png);
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+ 
+.moon {
+    position: absolute;
+    right: 10%;
+    top: 45%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+    background-color: #fff;
+    animation-name: luna;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+
+    @media (min-width: bp.$medium) {
+        width: 4.5rem;
+        height: 4.5rem;            
+    }
+
+    @media (min-width: bp.$medium-plus) {
+        width: 6rem;
+        height: 6rem;            
+    }
+
+    @media (min-width: bp.$large) {
+        top: 30%;
+    }
+
+    &--texture {
+        background-image: url(assets/moon.png);
+        background-position: center;
+        background-size: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        opacity: 0.4;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__reindeer {
+        background-image: url(assets/santa-reindeer.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        width: 100%;
+        height: 100%;
+    }
+  }
+
+@keyframes luna {
+    0% {
+        box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+    }
+    50% {
+        box-shadow: 0 0 80px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+    }
+    100% {
+        box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+    }
+}
